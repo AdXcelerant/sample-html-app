@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="node_modules/@adxact/adxact-js/dist/adxact.js" ></script>
+        <style>
+            #ad-container {
+                width: "1920px";
+                height: "1080px";
+            }
+
+            button {
+                margin-right: 25px;
+                display: "inline-block";
+            }
+
+            .mb {
+                margin-bottom: 15px;
+            }
+        </style>
+        <script>
+            function main() {
+                let e = document.getElementById("ad-container");
+                window.player = (new adxact.Player())
+                    .setMountElement(e)
+                    .setAdServerUrl("https://qa-ads.adxact.tech")
+                    .setPlacementKey("ENTER KEY HERE")
+            }
+        </script>
+    </head>
+    <body onload="main()">
+        <p>First, download the the library:</p>
+        <pre>
+            npm i @adxact/adxact-js
+        </pre>
+        <p>Next, add your placement key. You should see ads playing in <code>#ad-container</code> when
+           clicking the button below.
+        </p>
+        <p>If you are experiencing issues, check if Chrome is automatically disabling autoplay. Default Chrome
+           settings can disable autoplay under some conditions.
+        </p>
+
+        <div class="mb">
+            <button onclick="player.start()">Start</button>
+            <button onclick="player.stop()">Stop</button>
+        </div>
+
+        <div id="ad-container">
+        </div>
+    </body>
+</html>
+
+
